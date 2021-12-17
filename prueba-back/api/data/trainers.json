@@ -1,0 +1,24 @@
+{
+    "trainers": [
+        {
+            "name": "A",
+            "rank": 4.5,
+            "slots": 1
+        },
+        {
+            "name": "B",
+            "rank": 3.2,
+            "slots": 4
+        },
+        {
+            "name": "C",
+            "rank": 1.2,
+            "slots": 3
+        },
+        {
+            "name": "D",
+            "rank": 3.4,
+            "slots": 2
+        }
+    ]
+}
