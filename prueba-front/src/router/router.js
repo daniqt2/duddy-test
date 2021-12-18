@@ -1,10 +1,10 @@
 import Vue from "vue";
-import VueRouter from 'vue-router'
+import VueRouter from 'vue-router';
 
-import EditPage from '../components/EditPage.vue'
-import Asignation from '../components/Asignation.vue'
+import Asignation from '../components/Asignation.vue';
+import EditPage from '../components/EditPage.vue';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
