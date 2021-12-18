@@ -27,7 +27,6 @@ const store = new Vuex.Store({
         },
         updateTrainers({ commit }, data) {
             // Where api would be called to do a POST on data
-
             new Promise((resolve) => {
                 commit('saveTrainers', data);
                 resolve(data);

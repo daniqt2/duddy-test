@@ -10,7 +10,11 @@
             >
                 <div class="col-sm my-2">
                     Nombre
-                    <input v-model="trainer.name" class="ml-2 border-gray-light p-2" />
+                    <input
+                        @change="setTrainer(trainer, $event)"
+                        :value="trainer.name"
+                        class="ml-2 border-gray-light p-2"
+                    />
                 </div>
                 <div class="col-sm my-2">
                     Valoracion
@@ -75,6 +79,9 @@ export default {
                 //...
                 this.$router.push({ name: 'asign' });
             });
+        },
+        setTrainer(trainer, e) {
+            this.$set(trainer, 'name', e.target.value);
         },
     },
 };
