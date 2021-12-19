@@ -17,11 +17,14 @@
                     />
                 </div>
                 <div class="col-sm my-2">
-                    Valoracion
+                    Valoración
                     <input
                         v-model="trainer.rank"
-                        class="ml-2 border-gray-light p-2"
-                        :class="{ 'border-danger text-danger': !rankValidity[i] }"
+                        class="ml-2 p-2"
+                        :class="{
+                            'border border-danger text-danger': !rankValidity[i],
+                            'border-gray-light': rankValidity[i],
+                        }"
                     />
                     <p v-if="!rankValidity[i]" class="text-danger small mt-2">Value should be between 0-5</p>
                 </div>
@@ -33,8 +36,8 @@
                 </div>
             </div>
             <div>
-                <b-button v-b-modal.modal-1 variant="info" class="mr-2">Ver Tabla de Clientes</b-button>
-                <b-button variant="primary" @click="updateTrainers" :disabled="!allValid">Calcular Resultados</b-button>
+                <b-button v-b-modal.modal-1 variant="secondary" class="mr-2">Ver Tabla de Clientes</b-button>
+                <b-button variant="info" @click="updateTrainers" :disabled="!allValid">Calcular Resultados</b-button>
             </div>
             <b-modal id="modal-1" title="Clientes">
                 <modal></modal>
@@ -98,5 +101,9 @@ export default {
 
 .small {
     font-size: 10px;
+}
+
+input:focus {
+    outline: none;
 }
 </style>

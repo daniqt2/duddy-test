@@ -1,8 +1,8 @@
 <template>
     <div class="text-sm-center">
         <h4 class="my-4">
-            Satisfaccion general de los clientes:
-            <span class="text-info">{{ general }}/10</span>
+            Satisfacción general de los clientes:
+            <span class="text-info">{{ format(general) }}/10</span>
         </h4>
         <div>
             <div class="p-4 shadow-sm my-4 text-info bg-light text-md-left">
@@ -111,6 +111,11 @@ export default {
             Se puede ver facilmente como entre mas sube la importancia del cliente, el peso es mayor y por ende la satisfacción baja al tener entrenadores con menor
             valoración`,
         };
+    },
+    methods: {
+        format(val) {
+            return val.toFixed(2);
+        },
     },
 };
 </script>

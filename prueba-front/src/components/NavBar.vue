@@ -1,6 +1,6 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand font-weight-bold" href="#">Prueba DuddyFit</a>
+        <router-link class="navbar-brand font-weight-bold" to="/">Prueba DuddyFit</router-link>
         <div>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item" :class="{ 'active': this.$route.name === 'home' }">

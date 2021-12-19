@@ -5,65 +5,92 @@
                 <b-tab title="Entrenadores" :active="selected === TABS[0]" @click="selected = TABS[0]">
                     <h2>Asignación cliente-entrenador</h2>
                 </b-tab>
-                <b-tab title="Valoracion de Conjunto" :active="selected === TABS[1]" @click="selected = TABS[1]">
+                <b-tab title="Valoración de Conjunto" :active="selected === TABS[1]" @click="selected = TABS[1]">
                     <h2>Satisfacción del conjunto</h2>
                 </b-tab>
             </b-tabs>
         </div>
-        <p v-if="notAsignedClients.length">Clients missing assigment: {{ notAsignedClients }}</p>
-        <div class="row row-cols-3 mt-5 justify-content-center">
-            <div v-for="(trainer, i) in sortedTrainers" :key="trainer.name" class="col-auto d-flex align-items-stretch">
-                <b-card
-                    no-body
-                    v-if="trainer.clients"
-                    :footer="`${trainer.clients.length} clientes asignados`"
-                    tag="article"
-                    style="max-width: 20rem"
-                    class="mb-2 text-left"
+        <div v-if="notAsignedClients.length" class="p-2 w-25 mx-auto bg-light">
+            <h5>Clientes no asignados</h5>
+            <p>{{ notAsignedClients }}</p>
+        </div>
+        <div class="container-fluid">
+            <div class="row row-cols-3 mt-5 justify-content-center">
+                <div
+                    v-for="(trainer, i) in sortedTrainers"
+                    :key="trainer.name"
+                    class="col-md-4 col-12 d-flex align-items-stretch"
                 >
-                    <b-card-header class="d-flex">
-                        <p class="mr-auto">Entrenador {{ i + 1 }}</p>
-                        <div
-                            class="float-right"
-                            v-b-tooltip.hover.bottom
-                            custom-class="tooltip-class"
-                            :title="`
+                    <b-card
+                        no-body
+                        v-if="trainer.clients"
+                        tag="article"
+                        class="mx-1 mb-4 text-left w-100 shadow border-0"
+                    >
+                        <b-card-header class="d-flex border-bottom-0 bg-blue">
+                            <p class="mr-auto my-auto">Entrenador {{ i + 1 }}</p>
+                            <div
+                                class="float-right"
+                                v-b-tooltip.hover.bottom
+                                custom-class="tooltip-class"
+                                :title="`
                                 Valoración: ${trainer.rank} --        Max clientes: ${trainer.slots}`"
-                        >
-                            <b-icon icon="info-circle-fill" variant="info" v-b-tooltip.hover></b-icon>
-                        </div>
-                    </b-card-header>
-                    <b-card-body>
-                        <div v-if="selected == TABS[0]">
-                            <b-card-title>
-                                <div class="row">
-                                    <div class="col size emoji-smile-fill text-darl">
-                                        <div class="bg-light text-center float-left p-2 px-4 rounded">
-                                            <b-icon icon="emoji-smile-fill" variant="warning" class="p-0"></b-icon>
+                            >
+                                <b-icon
+                                    icon="info-circle-fill"
+                                    variant="white"
+                                    class="btn mb-2"
+                                    v-b-tooltip.hover
+                                ></b-icon>
+                            </div>
+                        </b-card-header>
+                        <b-card-body>
+                            <div v-if="selected == TABS[0]">
+                                <b-card-title class="pb-2">
+                                    <div class="row">
+                                        <div class="col size emoji-smile-fill text-darl">
+                                            <div class="bg-light text-center float-left p-2 px-4 rounded">
+                                                <b-icon icon="emoji-smile-fill" variant="warning" class="p-0"></b-icon>
+                                            </div>
+                                        </div>
+                                        <div class="col align-self-center d-flex">
+                                            <h4>{{ trainer.name }}</h4>
                                         </div>
                                     </div>
-                                    <div class="col">{{ trainer.name }}</div>
-                                </div>
-                            </b-card-title>
-                            <b-card-text class="ml-4">
-                                <p
-                                    v-for="client in trainer.clients"
-                                    :key="client.name"
-                                    v-b-tooltip.hover.right
-                                    :title="`Satisfacción: ${client.satisfactation ? client.satisfactation : ''}`"
-                                >
-                                    {{ client.name }}
+                                </b-card-title>
+                                <b-card-text class="bg-light p-4 text-center mt-2">
+                                    <p>
+                                        <b>
+                                            {{
+                                                trainer.clients.length
+                                                    ? ' Clientes asignados'
+                                                    : 'Ningún Cliente Asignado'
+                                            }}
+                                        </b>
+                                    </p>
+                                    <p
+                                        v-for="client in trainer.clients"
+                                        :key="client.name"
+                                        v-b-tooltip.hover.right
+                                        :title="`Satisfacción: ${client.satisfactation ? client.satisfactation : ''}`"
+                                    >
+                                        {{ client.name }}
+                                    </p>
+                                </b-card-text>
+                            </div>
+                            <div v-else class="text-center">
+                                <p class="mb-0">Satisfacción de grupo</p>
+                                <p v-if="trainer.clients.length">
+                                    <span class="text-info">{{ getS(satisfaccion[i]) }}</span>
                                 </p>
-                            </b-card-text>
-                        </div>
-                        <div v-else class="text-center">
-                            <p class="mb-0">Satisfaccion de grupo</p>
-                            <p>
-                                <span class="text-info">{{ getS(satisfaccion[i]) }}</span>
-                            </p>
-                        </div>
-                    </b-card-body>
-                </b-card>
+                                <p v-else>--Ningún cliente asignado--</p>
+                            </div>
+                        </b-card-body>
+                        <b-card-footer class="border-top-0 text-secondary text-center">
+                            <p class="my-0">{{ trainer.clients.length }} clientes asignados</p>
+                        </b-card-footer>
+                    </b-card>
+                </div>
             </div>
         </div>
         <explanation v-if="selected == TABS[1]" :chart-data="chartData" :general="generalSatisfaction"></explanation>
@@ -183,5 +210,10 @@ export default {
 <style>
 .emoji-smile-fill {
     font-size: 25px;
+}
+
+.bg-blue {
+    background-color: #334257 !important;
+    color: white;
 }
 </style>
