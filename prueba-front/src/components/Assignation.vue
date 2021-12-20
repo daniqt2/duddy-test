@@ -16,18 +16,22 @@
                 >
                     <trainer-card
                         :trainer="trainer"
-                        :showSatis="selected == TABS[1]"
+                        :show-satis="selected == TABS.VALORACION"
                         :index="i"
                         :satis="getS(satisfaccion[i])"
                     ></trainer-card>
                 </div>
             </div>
 
-            <b-button class="float-right d-none d-md-block" v-if="selected == TABS[0]">
+            <b-button class="float-right d-none d-md-block" v-if="selected == TABS.ENTRENADORES">
                 <router-link class="nav-link text-white" to="/">Volver a configuración</router-link>
             </b-button>
         </div>
-        <explanation v-if="selected == TABS[1]" :chart-data="chartData" :general="generalSatisfaction"></explanation>
+        <explanation
+            v-if="selected == TABS.VALORACION"
+            :chart-data="chartData"
+            :general="generalSatisfaction"
+        ></explanation>
     </div>
 </template>
 
@@ -38,7 +42,10 @@ import Explanation from './Explanation.vue';
 import Tabs from './Tabs.vue';
 import TrainerCard from './TrainerCard.vue';
 
-const TABS = ['entrenadores', 'valoracion'];
+const TABS = {
+    ENTRENADORES: 'entrenadores',
+    VALORACION: 'valoracion',
+};
 
 export default {
     name: 'AssignationLogic',
@@ -89,7 +96,7 @@ export default {
     },
     data() {
         return {
-            selected: TABS[0],
+            selected: TABS.ENTRENADORES,
             TABS,
             maxTrainerRank: 5,
             maxClientRank: 10,

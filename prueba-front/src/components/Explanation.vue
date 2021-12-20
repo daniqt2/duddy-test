@@ -17,16 +17,16 @@
                     <b>0 = nada satisfecho</b>
                 </p>
                 <p>
-                    Las Satisfacciónes grupales/generales se consideraran entre
+                    Las Satisfacción grupal/general se considera entre
                     <b>0-10</b>
-                    (10 siendo la mas alta) y se calcula con el promedio de la satisfacción de los clientes
+                    (10 siendo la más alta) y se calcula con el promedio de la satisfacción de los clientes
                     involucrados.
                 </p>
-                <li class="ml-2">
+                <li class="ml-md-2">
                     <b>Satisfacción grupal de cada entrenador</b>
                     : Promedio de la satisfacción de los clientes asignados a ese entrenador.
                 </li>
-                <li class="ml-2">
+                <li class="ml-md-2">
                     <b>Satisfacción general</b>
                     : Promedio de satisfacción de TODOS los clientes (incluso los no asignados, si fuera el caso).
                 </li>
@@ -44,7 +44,7 @@
                 <span class="text-danger">.02</span>
                 )
             </p>
-            <div class="text-left ml-4">
+            <div class="text-left ml-md-4">
                 <ul class="decoration-none">
                     <li>
                         <span class="text-danger">1</span>
@@ -53,7 +53,7 @@
                     </li>
                     <li>
                         <span class="text-warning">A</span>
-                        : Valoración mas alta que puede tener un entrenador (la mejor = 5).
+                        : Valoración más alta que puede tener un entrenador (la mejor = 5).
                     </li>
                     <li>
                         <span class="text-info">B</span>
@@ -77,11 +77,11 @@
             <div class="text-left text-sm-center ml-5">
                 <p class="mb-0">
                     <b>Index</b>
-                    : Representa el nivel de importancia que da el cliente.
+                    : Niveles de importancia que da el cliente a tener un entrenador bueno o no.
                 </p>
                 <p class="mt-0">
                     <b>Columnas</b>
-                    : Representan los diferentes niveles que puede tomar un entrenador.
+                    : Valoraciónes que puede tener un entrenador.
                 </p>
             </div>
             <div class="d-flex">
@@ -111,13 +111,12 @@ export default {
     data() {
         return {
             textOne: `Para calcular la satisfacción de cada cliente vamos a usar como peso el valor de la importancia que da el cliente a tener un entrenador con buen nivel o no.
-            Entre mas alta sea la importancia mas se va a "penalizar" que el entrenador tenga buen nivel o no. Para ello se usa la siguiente formula:`,
-            textTwo: `La siguiente tabla muestra todas las combinaciones posibles de entrenador-cliente (asumiendo numeros enteros) y la satisfacción de esta. 
-            Se puede ver facilmente como entre mas sube la importancia del cliente, el peso es mayor y por ende la satisfacción baja al tener entrenadores con menor
-            valoración`,
-            textThree: `Para asegurar que siempre se obtenga la satisfacción mas alta posible los clientes son asignados en orden especifico. Esto se hace ordenando a los clientes de  mayor importancia a menor importancia 
-            y empezando las asignaciones con los entrenadores con rango mas alto. De esta forma nos aseguramos que los clientes con mayor importancia queden asignados con los entrenadores 
-            de mayor rango posible y por ende nos den mas "puntos de satisfacción".`,
+            Entre más alta sea la importancia más se va a "penalizar" que el entrenador tenga buen nivel o no. Para ello se usa la siguiente formula:`,
+            textTwo: `La siguiente tabla muestra todas las combinaciones posibles de entrenador-cliente (asumiendo números enteros) y la satisfacción de esta. 
+            Se puede ver fácilmente como el peso es mayor entre más sube la importancia del cliente, lo que hace que la satisfacción baje al tener entrenadores con niveles menores.`,
+            textThree: `Para asegurar que siempre se obtenga la satisfacción más alta posible, los clientes son asignados en orden especifico. Esto se hace ordenando a los clientes de  mayor importancia a menor importancia 
+            y empezando las asignaciones con los entrenadores con rango más alto. De esta forma nos aseguramos que los clientes con mayor importancia queden asignados con los entrenadores 
+            de mayor rango posible y por ende nos den más "puntos de satisfacción".`,
         };
     },
     methods: {
