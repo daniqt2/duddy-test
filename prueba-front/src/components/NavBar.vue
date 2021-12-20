@@ -4,7 +4,7 @@
         <div class="d-none d-md-block">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item" :class="{ 'font-weight-bold': this.$route.name === 'home' }">
-                    <router-link class="nav-link" to="/">Configuracion</router-link>
+                    <router-link class="nav-link" to="/">Configuración</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link

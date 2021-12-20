@@ -5,7 +5,7 @@
             :class="{ 'font-weight-bold bg-info rounded': this.$route.name === 'home' }"
             to="/"
         >
-            Configuracion
+            Configuración
         </router-link>
         <router-link
             class="nav-link text-white px-5"
