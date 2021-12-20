@@ -1,6 +1,7 @@
 <template>
     <div>
         <h1 class="text-center">Pantalla de configuración</h1>
+        <p>(Al refrescar la página los valores regresaran a los originales)</p>
         <div v-if="trainersClone">
             <div
                 v-for="(trainer, i) in trainersClone"

@@ -41,14 +41,15 @@
                 ) *
                 <span class="text-success">C</span>
                 *
-                <span class="text-danger">.01</span>
+                <span class="text-danger">.02</span>
                 )
             </p>
             <div class="text-left ml-4">
                 <ul class="decoration-none">
                     <li>
                         <span class="text-danger">1</span>
-                        : Lo que tomaremos como el valor mas alto de satisfacción. El .01 es el peso para las unidades.
+                        : Lo que tomaremos como el valor mas alto de satisfacción. El .02 es simplemente un peso para
+                        las unidades.
                     </li>
                     <li>
                         <span class="text-warning">A</span>

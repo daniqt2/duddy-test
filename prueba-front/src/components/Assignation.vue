@@ -41,7 +41,7 @@ import TrainerCard from './TrainerCard.vue';
 const TABS = ['entrenadores', 'valoracion'];
 
 export default {
-    name: 'AsignationLogic',
+    name: 'AssignationLogic',
     components: { Explanation, TrainerCard, Tabs },
     computed: {
         ...mapState(['trainers', 'clients']),
@@ -132,7 +132,7 @@ export default {
         },
         calc(clientImp, rank) {
             // Satisfactation formula
-            return (1 - (this.maxTrainerRank - rank) * clientImp * 0.01).toFixed(2);
+            return (1 - (this.maxTrainerRank - rank) * clientImp * 0.02).toFixed(2);
         },
         add(accumulator, n) {
             return accumulator + parseFloat(n);
