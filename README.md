@@ -1,5 +1,5 @@
 
-# FULLSTACK test DuddyFit
+# Test DuddyFit
 
 # Usage
 
