@@ -22,6 +22,10 @@
                     ></trainer-card>
                 </div>
             </div>
+
+            <b-button class="float-right d-none d-md-block" v-if="selected == TABS[0]">
+                <router-link class="nav-link text-white" to="/">Volver a configuración</router-link>
+            </b-button>
         </div>
         <explanation v-if="selected == TABS[1]" :chart-data="chartData" :general="generalSatisfaction"></explanation>
     </div>
