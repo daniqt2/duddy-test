@@ -1,16 +1,16 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <router-link class="navbar-brand font-weight-bold" to="/">Prueba DuddyFit</router-link>
-        <div>
+        <div class="d-none d-md-block">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item" :class="{ 'active': this.$route.name === 'home' }">
+                <li class="nav-item" :class="{ 'font-weight-bold': this.$route.name === 'home' }">
                     <router-link class="nav-link" to="/">Configuracion</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link
                         class="nav-link text-dark"
                         to="/asign"
-                        :class="{ 'active': this.$route.name === 'asign' }"
+                        :class="{ 'font-weight-bold': this.$route.name === 'asign' }"
                     >
                         Resultados
                     </router-link>

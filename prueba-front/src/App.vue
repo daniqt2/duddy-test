@@ -6,19 +6,21 @@
                 <router-view></router-view>
             </div>
         </div>
+        <mobile-menu class="d-block d-sm-none"></mobile-menu>
     </div>
 </template>
 
 <script>
+import MobileMenu from './components/MobileMenu.vue';
 import NavBar from './components/NavBar.vue';
 
 export default {
     name: 'App',
     components: {
         NavBar,
+        MobileMenu,
     },
     created() {
-        console.log(this.$store);
         this.$store.dispatch('getTrainers');
         this.$store.dispatch('getClients');
     },

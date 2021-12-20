@@ -4,7 +4,7 @@ const API_BASE = 'api/';
 
 class requestService {
     static getClients() {
-       return this.fetchBase(`${API_BASE}clients`);
+        return this.fetchBase(`${API_BASE}clients`);
     }
 
     static getTrainers() {
@@ -12,17 +12,21 @@ class requestService {
     }
 
     static fetchBase(url) {
-        return axios.get(url).then(res => {
-            return res.data;
-        }).catch((e) => {
- return e;
-});
+        return axios
+            .get(url)
+            .then((res) => {
+                return res.data;
+            })
+            .catch((e) => {
+                return e;
+            });
     }
 
+    //  Would be used to post to backend
     static postBase(url, data) {
         return axios.post(url, data).catch(() => {
- throw new Error('There was an error trying to post your data');
-});
+            throw new Error('There was an error trying to post your data');
+        });
     }
 }
 

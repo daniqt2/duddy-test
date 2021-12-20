@@ -16,12 +16,12 @@ const store = new Vuex.Store({
             });
         },
         setClients({ commit }, data) {
+            //  POST ACTION would be here
             commit('saveClients', data);
         },
         getTrainers({ commit }) {
             return RequestService.getTrainers().then((data) => {
                 commit('saveTrainers', data.trainers);
-                console.log(data);
                 return data;
             });
         },
@@ -34,11 +34,11 @@ const store = new Vuex.Store({
         },
     },
     mutations: {
+        // save new data on store
         saveClients(state, data) {
             state.clients = data;
         },
         saveTrainers(state, data) {
-            console.log('saving');
             state.trainers = data;
         },
     },

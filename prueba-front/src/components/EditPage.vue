@@ -36,8 +36,10 @@
                 </div>
             </div>
             <div>
-                <b-button v-b-modal.modal-1 variant="secondary" class="mr-2">Ver Tabla de Clientes</b-button>
-                <b-button variant="info" @click="updateTrainers" :disabled="!allValid">Calcular Resultados</b-button>
+                <b-button v-b-modal.modal-1 variant="secondary" class="mr-2 mt-2">Ver Tabla de Clientes</b-button>
+                <b-button variant="info" @click="updateTrainers" :disabled="!allValid" class="mt-2">
+                    Calcular Resultados
+                </b-button>
             </div>
             <b-modal id="modal-1" title="Clientes">
                 <modal></modal>
@@ -51,11 +53,11 @@ import { mapState } from 'vuex';
 
 import Modal from './Modal.vue';
 export default {
+    name: 'EditionPage',
     components: { Modal },
     data() {
         return {
             trainersClone: null,
-            lolo: 'dsadas',
         };
     },
     computed: {
